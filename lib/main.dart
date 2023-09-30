@@ -1,6 +1,7 @@
 import 'package:booklyapp/Features/Splash/Presentation/Views/Home_View.dart';
 import 'package:booklyapp/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'Features/Splash/Presentation/Views/Splash_View.dart';
 
@@ -21,7 +22,10 @@ class BooklyApp extends StatelessWidget {
         HomeView.id: (context) => const HomeView(),
       },
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimayColor),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: kPrimayColor,
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+      ),
     );
   }
 }
