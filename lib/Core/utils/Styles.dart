@@ -17,7 +17,6 @@ abstract class Styles {
   static const textStyle20 = TextStyle(
     fontWeight: FontWeight.normal,
     fontSize: 20,
-    fontFamily: "News Roman",
   );
   static const textStyle30 = TextStyle(
     fontWeight: FontWeight.normal,
