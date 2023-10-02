@@ -1,8 +1,11 @@
 // ignore_for_file: file_names
 
+import 'package:booklyapp/Core/utils/App_Router.dart';
 import 'package:booklyapp/Core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../Home_View.dart';
 import 'Sliding_Text.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -26,7 +29,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
         Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
             .animate(animationController);
     animationController.forward();
+    navigateToHome();
     super.initState();
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 2), () {
+      AppRouter.router.go('/HomeView');
+    });
   }
 
   @override
