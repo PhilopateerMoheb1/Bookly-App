@@ -1,11 +1,12 @@
 // ignore_for_file: file_names
 
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:booklyapp/Core/utils/App_Router.dart';
 import 'package:booklyapp/Core/utils/assets.dart';
+import 'package:booklyapp/Features/Splash/Presentation/Views/Home_View.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../Home_View.dart';
 import 'Sliding_Text.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -33,9 +34,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.initState();
   }
 
-  void navigateToHome() {
-    Future.delayed(const Duration(seconds: 2), () {
-      AppRouter.router.push('/HomeView');
+  void navigateToHome() async {
+    await Future.delayed(const Duration(seconds: 2), () {
+      context.go(AppRouter.kHomeViewRoute);
     });
   }
 
@@ -60,7 +61,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
           height: 4,
         ),
         SlidingText(slidingAnimation: slidingAnimation)
-      ],
+      ], // child:
     );
   }
 }

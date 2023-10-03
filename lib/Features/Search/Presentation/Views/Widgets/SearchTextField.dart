@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+class SearchTextField extends StatelessWidget {
+  const SearchTextField({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      child: TextField(
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+        decoration: InputDecoration(
+          fillColor: Colors.white,
+          focusedBorder: buildOutlineInputBorder(),
+          enabledBorder: buildOutlineInputBorder(),
+          hintText: "Search",
+          suffixIcon: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              FontAwesomeIcons.magnifyingGlass,
+              color: Colors.white,
+              size: 22,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder() {
+    return const OutlineInputBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(20),
+      ),
+    );
+  }
+}

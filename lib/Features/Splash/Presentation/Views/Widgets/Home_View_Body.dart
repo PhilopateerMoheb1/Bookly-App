@@ -1,10 +1,8 @@
 import 'package:booklyapp/Core/utils/Styles.dart';
-import 'package:booklyapp/Core/utils/assets.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BestSellerListView.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/FeaturedListView.dart';
 import 'package:flutter/material.dart';
 
-import 'BestSellerListViewItem.dart';
 import 'CustomAppBar.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -38,7 +36,7 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        SliverToBoxAdapter(
+        SliverFillRemaining(
           child: BestSellerListView(),
         )
       ],

@@ -1,8 +1,9 @@
-import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BestSellerListViewItem.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerListView extends StatelessWidget {
-  const BestSellerListView({super.key});
+import '../../../../Splash/Presentation/Views/Widgets/BestSellerListViewItem.dart';
+
+class SearchResultListView extends StatelessWidget {
+  const SearchResultListView({super.key});
 
   @override
   Widget build(BuildContext context) {

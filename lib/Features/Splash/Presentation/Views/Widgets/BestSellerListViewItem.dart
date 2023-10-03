@@ -1,7 +1,9 @@
 import 'package:booklyapp/Core/utils/Styles.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BookRating.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../Core/utils/App_Router.dart';
 import '../../../../../Core/utils/assets.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
@@ -10,7 +12,9 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.go(AppRouter.kBookDetailsViewRoute);
+      },
       child: Padding(
         padding: const EdgeInsets.only(
           left: 29,
@@ -72,7 +76,10 @@ class BestSellerListViewItem extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        const BookRating(),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24.0),
+                          child: BookRating(),
+                        ),
                       ],
                     ),
                   ],
