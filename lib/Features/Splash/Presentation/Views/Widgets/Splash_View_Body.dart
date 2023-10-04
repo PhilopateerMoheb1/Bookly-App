@@ -1,9 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:booklyapp/Core/utils/App_Router.dart';
 import 'package:booklyapp/Core/utils/assets.dart';
-import 'package:booklyapp/Features/Splash/Presentation/Views/Home_View.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

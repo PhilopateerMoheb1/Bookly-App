@@ -1,7 +1,6 @@
 import 'package:booklyapp/Core/utils/Styles.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BookDetailsCustomAppBar.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BookRating.dart';
-import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BooksAction.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/CustomBookImage.dart';
 import 'package:flutter/material.dart';
 
