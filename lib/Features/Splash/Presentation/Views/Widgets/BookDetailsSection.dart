@@ -1,11 +1,18 @@
 import 'package:booklyapp/Core/utils/Styles.dart';
+import 'package:booklyapp/Features/Data/Models/book_model/book_model.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BookDetailsCustomAppBar.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BookRating.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/CustomBookImage.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  const BookDetailsSection({
+    super.key,
+    required this.bookModel,
+  });
+
+  final BookModel bookModel;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +23,10 @@ class BookDetailsSection extends StatelessWidget {
         const BookDetailsCustomAppBar(),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .17),
-          child: const CustomBookImage(),
+          child: CustomBookImage(
+            bookModel: bookModel,
+            index: 0,
+          ),
         ),
         const SizedBox(
           height: 33,
@@ -38,8 +48,10 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const BookRating(
+        BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
+          rating: bookModel.items![index].volumeInfo!.averageRating ?? 0,
+          reviews: bookModel.items![index].volumeInfo!.ratingsCount ?? 0,
         ),
         const SizedBox(
           height: 25,

@@ -11,7 +11,7 @@ class HomeRepoImp extends HomeRepo {
 
   HomeRepoImp({required this.apiService});
   @override
-  Future<Either<Failure, BookModel>> fetchBestSellerBooks() async {
+  Future<Either<Failure, BookModel>> fetchNewest() async {
     try {
       var data = await apiService.get(
           endpoint:
@@ -36,8 +36,26 @@ class HomeRepoImp extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() {
-    // TODO: implement fetchFeaturedBooks
-    throw UnimplementedError();
+  Future<Either<Failure, BookModel>> fetchFeaturedBooks() async {
+    try {
+      var data = await apiService.get(
+          endpoint: "/volumes?q=subject:Programming&Filtering=free-ebooks");
+      BookModel bookModel = BookModel.fromJson(data);
+      return right(bookModel);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return Left(
+          ServerFailure.fromDioException(
+            e,
+          ),
+        );
+      } else {
+        return Left(
+          ServerFailure(
+            e.toString(),
+          ),
+        );
+      }
+    }
   }
 }

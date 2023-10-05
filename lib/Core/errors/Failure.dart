@@ -1,13 +1,13 @@
-import 'dart:html';
-
 import 'package:dio/dio.dart';
 
-abstract class Failure {}
-
-class ServerFailure extends Failure {
+abstract class Failure {
   final String errMsg;
 
-  ServerFailure(this.errMsg);
+  Failure({required this.errMsg});
+}
+
+class ServerFailure extends Failure {
+  ServerFailure(String errMsg) : super(errMsg: errMsg);
 
   factory ServerFailure.fromDioException(DioException dioException) {
     switch (dioException.type) {
