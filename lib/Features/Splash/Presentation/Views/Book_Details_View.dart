@@ -3,14 +3,14 @@ import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BookDetails
 import 'package:flutter/material.dart';
 
 class BookDetailsView extends StatelessWidget {
-  const BookDetailsView({super.key});
+  const BookDetailsView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: BookDetailsViewBody(
-        bookModel: BookModel(),
-      ),
+    return Scaffold(
+      body: BookDetailsViewBody(),
     );
   }
 }

@@ -21,32 +21,33 @@ class CustomBookImage extends StatelessWidget {
   Widget build(BuildContext context) {
     String? imageLink;
 
-    // if (bookModel.items!.length >= index) {
-    //   if (bookModel.items![index].volumeInfo?.imageLinks != null) {
-    //     imageLink = bookModel.items![index].volumeInfo?.imageLinks!.thumbnail;
-    //   }
-    // } else {
-    imageLink =
-        "https://www.seiu1000.org/sites/main/files/imagecache/hero/main-images/camera_lense_0.jpeg";
-    // }
+    if (bookModel.items![index].volumeInfo?.imageLinks != null) {
+      imageLink = bookModel.items![index].volumeInfo?.imageLinks!.thumbnail;
+    } else {
+      imageLink =
+          "https://www.seiu1000.org/sites/main/files/imagecache/hero/main-images/camera_lense_0.jpeg";
+    }
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: AspectRatio(
         aspectRatio: 2.6 / 4,
-        child: CachedNetworkImage(
-          imageUrl: imageLink,
-          fit: BoxFit.fill,
-          errorWidget: (context, url, error) {
-            return const Icon(
-              Icons.error,
-            );
-          },
-          placeholder: (context, url) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: CachedNetworkImage(
+            imageUrl: imageLink!,
+            fit: BoxFit.fill,
+            errorWidget: (context, url, error) {
+              return const Icon(
+                Icons.error,
+              );
+            },
+            placeholder: (context, url) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },
+          ),
         ),
       ),
     );

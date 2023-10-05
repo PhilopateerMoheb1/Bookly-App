@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 class RecommedationListView extends StatelessWidget {
   const RecommedationListView({
     super.key,
-    required this.bookModel,
   });
-
-  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +14,7 @@ class RecommedationListView extends StatelessWidget {
       child: ListView.builder(
         itemBuilder: (context, index) {
           return CustomBookImage(
-            bookModel: bookModel,
+            bookModel: const BookModel(),
             index: index,
           );
         },

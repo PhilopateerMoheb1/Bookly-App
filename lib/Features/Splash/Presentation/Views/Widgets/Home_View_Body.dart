@@ -1,4 +1,5 @@
 import 'package:booklyapp/Core/utils/Styles.dart';
+import 'package:booklyapp/Features/Data/Models/book_model/book_model.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BestSellerListView.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/FeaturedListView.dart';
 import 'package:flutter/material.dart';
@@ -6,11 +7,14 @@ import 'package:flutter/material.dart';
 import 'CustomAppBar.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return const CustomScrollView(
+      physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Column(

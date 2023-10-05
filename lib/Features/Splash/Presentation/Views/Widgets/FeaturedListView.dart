@@ -17,7 +17,8 @@ class FeaturedListView extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .35,
             child: ListView.builder(
-              itemCount: 10,
+              physics: BouncingScrollPhysics(),
+              itemCount: state.bookModel.items!.length,
               itemBuilder: (context, index) {
                 return CustomBookImage(
                   bookModel: state.bookModel,

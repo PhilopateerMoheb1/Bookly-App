@@ -5,9 +5,10 @@ import '../../../../../Core/utils/Styles.dart';
 import 'RecommedationListView.dart';
 
 class SimilarBooksSection extends StatelessWidget {
-  const SimilarBooksSection({super.key, required this.bookModel});
+  const SimilarBooksSection({
+    super.key,
+  });
 
-  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,9 +19,7 @@ class SimilarBooksSection extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        RecommedationListView(
-          bookModel: bookModel,
-        ),
+        const RecommedationListView(),
       ],
     );
   }

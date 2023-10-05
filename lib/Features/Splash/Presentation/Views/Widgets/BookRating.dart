@@ -11,8 +11,8 @@ class BookRating extends StatelessWidget {
   });
   final MainAxisAlignment mainAxisAlignment;
 
-  final int rating;
-  final int reviews;
+  final dynamic rating;
+  final dynamic reviews;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class BookRating extends StatelessWidget {
           width: 6,
         ),
         Text(
-          reviews.toString(),
+          "(${reviews.toString()})",
           style: Styles.textStyle14.copyWith(
             color: const Color(
               0xff707070,

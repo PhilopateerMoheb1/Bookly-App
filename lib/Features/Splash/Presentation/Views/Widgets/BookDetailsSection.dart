@@ -8,11 +8,7 @@ import 'package:flutter/material.dart';
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({
     super.key,
-    required this.bookModel,
   });
-
-  final BookModel bookModel;
-  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +19,8 @@ class BookDetailsSection extends StatelessWidget {
         const BookDetailsCustomAppBar(),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .17),
-          child: CustomBookImage(
-            bookModel: bookModel,
+          child: const CustomBookImage(
+            bookModel: BookModel(),
             index: 0,
           ),
         ),
@@ -48,10 +44,10 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        BookRating(
+        const BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-          rating: bookModel.items![index].volumeInfo!.averageRating ?? 0,
-          reviews: bookModel.items![index].volumeInfo!.ratingsCount ?? 0,
+          rating: 0,
+          reviews: 0,
         ),
         const SizedBox(
           height: 25,
