@@ -13,8 +13,12 @@ final class SimilarBooksLoading extends SimilarBooksState {}
 
 final class SimilarBooksSuccess extends SimilarBooksState {
   final BookModel bookModel;
+  final int index;
 
-  const SimilarBooksSuccess({required this.bookModel});
+  const SimilarBooksSuccess({
+    required this.bookModel,
+    required this.index,
+  });
 }
 
 final class SimilarBooksFailure extends SimilarBooksState {

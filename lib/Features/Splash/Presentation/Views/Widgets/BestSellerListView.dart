@@ -1,3 +1,4 @@
+import 'package:booklyapp/Features/Data/Models/book_model/BookModelIndex.dart';
 import 'package:booklyapp/Features/Data/Models/book_model/book_model.dart';
 import 'package:booklyapp/Features/Search/Presentation/Manager/NewestBooks/newest_books_cubit.dart';
 import 'package:booklyapp/Features/Splash/Presentation/Views/Widgets/BestSellerListViewItem.dart';
@@ -22,8 +23,10 @@ class BestSellerListView extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: BestSellerListViewItem(
-                  bookModel: state.bookModel,
-                  index: index,
+                  bookModelIndex: BookModelIndex(
+                    bookModel: state.bookModel,
+                    index: index,
+                  ),
                 ),
               );
             },

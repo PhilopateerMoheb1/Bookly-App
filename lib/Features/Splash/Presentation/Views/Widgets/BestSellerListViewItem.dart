@@ -7,22 +7,24 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../Core/utils/App_Router.dart';
 import '../../../../../Core/utils/assets.dart';
+import '../../../../Data/Models/book_model/BookModelIndex.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({
     super.key,
-    required this.bookModel,
-    required this.index,
+    required this.bookModelIndex,
   });
 
-  final BookModel bookModel;
-  final int index;
+  final BookModelIndex bookModelIndex;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go(AppRouter.kBookDetailsViewRoute);
+        context.go(
+          AppRouter.kBookDetailsViewRoute,
+          extra: bookModelIndex,
+        );
       },
       child: Padding(
         padding: const EdgeInsets.only(
@@ -32,7 +34,9 @@ class BestSellerListViewItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * .2,
           child: Row(
             children: [
-              CustomBookImage(bookModel: bookModel, index: index),
+              CustomBookImage(
+                  bookModel: bookModelIndex.bookModel,
+                  index: bookModelIndex.index),
               const SizedBox(
                 width: 30,
               ),
@@ -43,7 +47,8 @@ class BestSellerListViewItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * .5,
                       child: Text(
-                        bookModel.items![index].volumeInfo!.title!,
+                        bookModelIndex.bookModel.items![bookModelIndex.index]
+                            .volumeInfo!.title!,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle20.copyWith(
                           fontFamily: "New Roman",
@@ -55,7 +60,8 @@ class BestSellerListViewItem extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      bookModel.items?[index].volumeInfo!.authors![0],
+                      bookModelIndex.bookModel.items![bookModelIndex.index]
+                          .volumeInfo!.authors![0],
                       style: Styles.textStyle14,
                     ),
                     const SizedBox(
@@ -73,11 +79,17 @@ class BestSellerListViewItem extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 24.0),
                           child: BookRating(
-                            rating: bookModel
-                                    .items![index].volumeInfo!.averageRating ??
+                            rating: bookModelIndex
+                                    .bookModel
+                                    .items![bookModelIndex.index]
+                                    .volumeInfo!
+                                    .averageRating ??
                                 0,
-                            reviews: bookModel
-                                    .items![index].volumeInfo!.ratingsCount ??
+                            reviews: bookModelIndex
+                                    .bookModel
+                                    .items![bookModelIndex.index]
+                                    .volumeInfo!
+                                    .ratingsCount ??
                                 0,
                           ),
                         ),
